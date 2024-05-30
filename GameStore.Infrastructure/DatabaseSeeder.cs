@@ -24,7 +24,7 @@ namespace GameStore.Infrastructure
 
             // Створення адміністратора
             string adminEmail = "admin@example.com";
-            string adminPassword = "AdminPassword";
+            string adminPassword = "AdminPassword(9";
             if (await userManager.FindByNameAsync(adminEmail) == null)
             {
                 IdentityUser admin = new IdentityUser { UserName = adminEmail, Email = adminEmail };
@@ -37,7 +37,7 @@ namespace GameStore.Infrastructure
 
             // Створення користувача
             string userEmail = "user@example.com";
-            string userPassword = "UserPassword";
+            string userPassword = "UserPassword(9";
             if (await userManager.FindByNameAsync(userEmail) == null)
             {
                 IdentityUser user = new IdentityUser { UserName = userEmail, Email = userEmail };
