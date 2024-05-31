@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GameStore.Core.Validation;
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameStore.Core.Entities
 {
@@ -16,5 +13,10 @@ namespace GameStore.Core.Entities
         public int CategoryId {  get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Categories? Categories { get; set; }
+        public string Image { get; set; } = "noimage.png";
+
+        [NotMapped]
+        [FileExtension]
+        public IFormFile? ImageUpload { get; set; }
     }
 }

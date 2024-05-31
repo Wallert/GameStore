@@ -1,0 +1,48 @@
+﻿@using GameStore.Core.Entities
+@model IEnumerable<Products>
+@{
+    ViewData["Title"] = "Products";
+}
+<h1>Products</h1>
+
+<a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-primary">Manage Categories</a>
+<a asp-area="Admin" asp-controller="Products" asp-action="Index" class="btn btn-primary">Manage Products</a>
+
+<p>
+    <a asp-action="Create">Create new product</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <th>CategoryName</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelCategory => product.Id)</td>
+                <td>@Html.DisplayFor(modelCategory => product.Name)</td>
+                <td>@Html.DisplayFor(modelCategory => product.Price)</td>
+                <td>@Html.DisplayFor(modelCategory => product.Categories.Name)</td>                
+                <td>
+                    <img src="/media/products/@product.Image" height="100" style="height: 100px; width: 100%; padding: 20px; display: flex; justify-content: center; object-fit: contain;" alt="" />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $("#ImageUpload").change(function () {
+        readURL(this);
+    });
+</script>

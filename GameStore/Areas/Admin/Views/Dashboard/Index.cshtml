@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Welcome on admin page!</p>
+
+<a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-primary">Manage Categories</a>
+<a asp-area="Admin" asp-controller="Products" asp-action="Index" class="btn btn-primary">Manage Products</a>

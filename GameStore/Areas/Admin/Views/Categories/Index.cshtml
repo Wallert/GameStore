@@ -1,0 +1,35 @@
+﻿@using GameStore.Core.Entities
+@model IEnumerable<Categories>
+@{
+    ViewData["Title"] = "Categories";
+}
+<h1>Categories</h1>
+
+<a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-primary">Manage Categories</a>
+<a asp-area="Admin" asp-controller="Products" asp-action="Index" class="btn btn-primary">Manage Products</a>
+
+<p>
+    <a asp-action="Create">Create new category</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelCategory => category.Id)</td>
+                <td>@Html.DisplayFor(modelCategory => category.Name)</td>        
+                <td>
+                    <a asp-action="Edit" asp-route-id="@category.Id" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

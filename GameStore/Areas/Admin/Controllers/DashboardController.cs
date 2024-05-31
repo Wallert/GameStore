@@ -1,15 +1,14 @@
 using GameStore.UI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace GameStore.UI.Controllers
+namespace GameStore.UI.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
-    {
-
-        public HomeController()
-        {
-        }
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+    public class DashboardController : Controller
+    {     
 
         public IActionResult Index()
         {

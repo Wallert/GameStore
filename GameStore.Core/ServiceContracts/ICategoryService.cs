@@ -7,8 +7,8 @@ namespace GameStore.Core.ServiceContracts
         public Task<bool> IsExistAsync(int id);
         public Task<Categories> GetCategoryAsync(int id);
         public Task<ICollection<Categories>> GetAllCategoriesAsync();
-        public Task<Categories> CreateCategoryAsync(Categories category);
-        public Task<Categories> UpdateCategoryAsync(Categories category);
+        public Task CreateCategoryAsync(Categories category);
+        public Task UpdateCategoryAsync(Categories category);
         public Task DeleteCategoryAsync(int id);
     }
 }
